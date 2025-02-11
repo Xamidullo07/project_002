@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.css";
 import axios from "axios";
 import { baseUrl } from "@/utils/api";
@@ -8,29 +8,32 @@ import Link from "next/link";
 
 function Login() {
   const route = useRouter();
+
+  useEffect(() => {
+    // localStorage faqat brauzerda ishlashi kerak
+    if (typeof window !== "undefined") {
+      const token = localStorage.getItem("accessToken");
+      if (token) {
+        route.push("/dashboard");
+      }
+    }
+  }, []);
+
   const onSubmit = async (e) => {
     e.preventDefault();
     let email = e.target[0].value;
     let password = e.target[1].value;
     try {
-      let res = await axios.post(`${baseUrl}/auth`, {
-        email,
-        password,
-      });
+      let res = await axios.post(`${baseUrl}/auth`, { email, password });
       if (res.status === 200) {
         localStorage.setItem("accessToken", res.data.token);
         route.push("/dashboard");
       }
-      console.log(res);
     } catch (error) {
       console.log(error);
     }
-    // console.log(email, password);
   };
 
-  if (localStorage.getItem("accessToken")) {
-    route.push("/dashboard");
-  }
   return (
     <div className="container">
       <h2 className="title">Sign In</h2>
