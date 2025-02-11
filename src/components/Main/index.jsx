@@ -3,6 +3,7 @@
 import useFetch from "@/app/hooks/useFetch";
 import React from "react";
 import "./style.css";
+import Link from "next/link";
 
 function Main() {
   //   let res = useFetch("/test");
@@ -10,15 +11,24 @@ function Main() {
 
   return (
     <>
-      <div className="container">
-        <h2 className="title">Dashboard</h2>
-        <p className="welcome">
-          <span className="icon">👤</span> Welcome
-        </p>
-        <p className="info">
-          You have not yet setup a profile, please add some info
-        </p>
-        <button className="button">Create Profile</button>
+      <div className="landing">
+        <div className="overlay">
+          <div className="content">
+            <h1>Developer Connector</h1>
+            <p>
+              Create a developer profile/portfolio, share posts and get help
+              from other developers
+            </p>
+            <div className="buttons">
+              <Link href={"/register"} className="btn signup">
+                Sign Up
+              </Link>
+              <Link href={"/login"} className="btn login">
+                Login
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

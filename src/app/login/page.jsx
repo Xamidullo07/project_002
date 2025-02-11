@@ -4,6 +4,7 @@ import "./style.css";
 import axios from "axios";
 import { baseUrl } from "@/utils/api";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 function Login() {
   const route = useRouter();
@@ -18,7 +19,7 @@ function Login() {
       });
       if (res.status === 200) {
         localStorage.setItem("accessToken", res.data.token);
-        route.push("/");
+        route.push("/dashboard");
       }
       console.log(res);
     } catch (error) {
@@ -26,6 +27,10 @@ function Login() {
     }
     // console.log(email, password);
   };
+
+  if (localStorage.getItem("accessToken")) {
+    route.push("/dashboard");
+  }
   return (
     <div className="container">
       <h2 className="title">Sign In</h2>
@@ -41,9 +46,9 @@ function Login() {
       </form>
       <p className="signupText">
         Don't have an account?{" "}
-        <a href="#" className="signupLink">
+        <Link href={"/register"} className="signupLink">
           Sign Up
-        </a>
+        </Link>
       </p>
     </div>
   );

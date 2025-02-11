@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 20px 20px;
   font-family: Arial, sans-serif;
   border-bottom: 3px solid #00bcd4;
 }
@@ -18,6 +18,7 @@
 
 .icon {
   margin-right: 5px;
+  font-size: 16px;
 }
 
 .navLinks {
@@ -42,4 +43,24 @@
 
 .navLinks a:hover {
   text-decoration: underline;
+}
+
+.nav {
+  display: flex;
+  gap: 15px;
+}
+
+.nav2 {
+  display: flex;
+  gap: 15px;
+}
+
+.link :hover {
+  color: aqua;
+}
+
+.navLinks a:hover,
+.navLinks a:focus,
+.navLinks a:active {
+  text-decoration: none;
 }
