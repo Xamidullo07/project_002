@@ -3,16 +3,17 @@
 import Main from "@/components/Main";
 import Navbar from "@/components/Navbar";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
 
 function Home() {
-  const route = useRouter();
-  if (!localStorage.getItem("accessToken")) {
-    route.push("/login");
-  }
+  const router = useRouter();
+  useEffect(() => {
+    if (!localStorage.getItem("accessToken")) {
+      router.push("/login");
+    }
+  }, []);
   return (
     <div>
-      <Navbar />
       <Main />
     </div>
   );

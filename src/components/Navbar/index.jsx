@@ -1,29 +1,36 @@
+"use client";
+
 import React from "react";
 import "./style.css";
+import Link from "next/link";
 
 function Navbar() {
   return (
     <>
       <nav className="navbar">
         <div className="logo">
-          <span className="icon">{"</>"}</span> DevConnector
+          <Link href={"/"} className="icon">
+            {"</>"}
+          </Link>{" "}
+          DevConnector
         </div>
         <ul className="navLinks">
           <li>
-            <a href="#">Developers</a>
+            <Link href={"/developers"}>Developers</Link>
           </li>
           <li>
             <a href="#">Posts</a>
           </li>
           <li>
-            <a href="#">
-              <span className="icon">👤</span> Dashboard
-            </a>
+            <Link href={"/"} className="icon">
+              👤Dashboard
+            </Link>{" "}
           </li>
           <li>
-            <a href="#">
-              <span className="icon">↪️</span> Logout
-            </a>
+            <Link href={"/login"} className="icon">
+              ↪️
+            </Link>{" "}
+            Logout
           </li>
         </ul>
       </nav>
