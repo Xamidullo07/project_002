@@ -5,6 +5,7 @@ import axios from "axios";
 import { baseUrl } from "@/utils/api";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 function Login() {
   const route = useRouter();
@@ -28,9 +29,12 @@ function Login() {
       if (res.status === 200) {
         localStorage.setItem("accessToken", res.data.token);
         route.push("/dashboard");
+        toast.success("Muvaffaqiyatli bajarildi! 🎉");
       }
     } catch (error) {
-      console.log(error);
+      toast.error("Xatolik yuzaga keldi");
+
+      // console.log(error);
     }
   };
 

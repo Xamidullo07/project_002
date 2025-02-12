@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { toast, ToastContainer } from "react-toastify";
 
 function Navbar() {
   const [token, setToken] = useState(null);
@@ -35,6 +36,7 @@ function Navbar() {
     localStorage.removeItem("accessToken");
     setToken(null);
     route.push("/");
+    toast.success("Muvaffaqiyatli bajarildi!");
   };
   return (
     <>

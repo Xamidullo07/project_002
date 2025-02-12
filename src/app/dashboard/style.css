@@ -1,6 +1,7 @@
 .container {
   text-align: center;
   margin-top: 20px;
+  /* padding-top: 100px; */
 }
 
 .title {
@@ -32,17 +33,16 @@
   background-color: darkcyan;
 }
 
-/* ✅ FORM UCHUN STYLE */
 .profile-container {
-  width: 60%; /* 🔹 Formani kengaytirdik */
-  max-width: 500px; /* 🔹 Juda katta bo‘lib ketmasin */
-  margin: auto;
+  width: 90%;
+  max-width: 800px;
   padding: 20px;
   background: #f8f8f8;
   border-radius: 10px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: left; /* 🔹 Textlarni o‘ngga surib qo‘ydik */
+  text-align: left;
+  margin: 20px auto;
 }
 
 input,
@@ -54,6 +54,7 @@ textarea {
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 .submit-btn {
